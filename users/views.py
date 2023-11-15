@@ -27,7 +27,10 @@ def submitPassword(request):
     if request.method == 'POST':
         # Retrieve data from the POST request
         password = request.POST.get('Password')
-        return render(request, 'successPass.html', {'password': password})
+        if validate_common_password(password):
+            return render(request, 'successPass.html', {'password': password})
+        else:
+            return render(request,'home.html')
 
 def protect_against_xss(user_input):
     """Escape special characters in user input to prevent XSS attacks."""
@@ -55,5 +58,10 @@ def detect_sql_injection(user_input):
 
     return False
 
+def validate_common_password(value):
+    with open('10-million-password-list-top-1000000.txt', 'r') as common_passwords_file:
+        common_passwords = [line.strip() for line in common_passwords_file]
+
+    return value not in common_passwords
 # Create your views here.
 

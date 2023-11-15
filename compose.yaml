@@ -1,0 +1,11 @@
+services:
+  nginxwebsvr:
+    image: nginx:alpine
+    container_name: nginxwebsvr
+    ports:
+      - "90:90"
+  djangoapp:
+    image: djangoapp
+    container_name: djangoapp
+    ports:
+      - "8000:8000"
