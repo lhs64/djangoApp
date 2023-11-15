@@ -7,7 +7,7 @@ pipeline {
 
     tools {
         // Define the Python tool with the specified version
-        jdk "${PYTHON_VERSION}"
+           python "${PYTHON_VERSION}"
     }
 
     stages {
