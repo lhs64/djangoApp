@@ -6,8 +6,8 @@ pipeline {
     }
 
     tools {
-        // Define the Python tool with the specified version
-           python "${PYTHON_VERSION}"
+        // Define Python installation in Jenkins global configuration
+        python 'Python3.8'
     }
 
     stages {
