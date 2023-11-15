@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            // Use a Python-based Docker image
-            image 'python:3.8'
-        }
-    }
+    agent any
 
     stages {
         stage('Checkout') {
