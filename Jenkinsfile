@@ -1,11 +1,5 @@
 pipeline {
-agent {
-        docker {
-            // Use a Docker image with Python and Pip
-            image 'python:3.8'
-        }
-    }
-
+agent any
 
     stages {
         stage('Checkout') {
@@ -16,13 +10,13 @@ agent {
 
         stage('Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                sh 'pip3 install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'python manage.py test'
+                sh 'python3 manage.py test'
             }
         }
 }
