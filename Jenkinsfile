@@ -4,12 +4,6 @@ pipeline {
     environment {
         PYTHON_VERSION = '3.8.12'
     }
-
-    tools {
-        // Define Python installation in Jenkins global configuration
-        python 'Python3.8'
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -21,7 +15,7 @@ pipeline {
             steps {
                 script {
                     // Install dependencies using pip
-                    sh "python -m pip install -r requirements.txt"
+                    sh "python3 -m pip install -r requirements.txt"
                 }
             }
         }
@@ -30,7 +24,7 @@ pipeline {
             steps {
                 script {
                     // Run Django tests or other commands
-                    sh "python manage.py test"
+                    sh "python3 manage.py test"
                 }
             }
         }
